@@ -1,0 +1,18 @@
+{
+  "activation" : {
+    "title": "激活账号",
+    "template": "activation.html"
+  },
+  "authorization" : {
+    "title": "绑定谷歌验证",
+    "template": "authorization.html"
+  },
+  "resetpwd" : {
+    "title": "重设密码",
+    "template": "resetpwd.html"
+  },
+  "withdrawApply" : {
+    "title": "申请提现",
+    "template": "withdrawApply.html"
+  }
+}

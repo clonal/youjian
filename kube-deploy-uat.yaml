@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mail
+  namespace: uat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mail
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: mail
+        image: repo.koall.io:8080/ko-mail:uat_${BUILD_NUMBER}
+        ports:
+        - name: eport
+          containerPort: 8099
+        volumeMounts:
+        - mountPath: /opt/jdk
+          name: jdk-path
+      volumes:
+      - name: jdk-path
+        hostPath:
+          path: /opt/jdk
+      imagePullSecrets: 
+      - name: registry-secret
